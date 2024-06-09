@@ -1,0 +1,25 @@
+name: Build LaTeX document
+on:
+  push:
+    paths-ignore:
+      - '*.pdf'  # Don't run on changes to PDF files
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Compile LaTeX document
+      uses: dante-ev/latex-action@latest
+      with:
+        root_file: main.tex
+
+    - name: Save Output file
+      uses: actions/upload-artifact@v4
+      with:
+        name: resume
+        path: main.pdf
+        overwrite: true
+        compression-level: 0
+        if-no-files-found: error

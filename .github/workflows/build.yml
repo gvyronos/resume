@@ -23,24 +23,3 @@ jobs:
         overwrite: true
         compression-level: 0
         if-no-files-found: error
-
-    - name: Configure Git credentials
-      run: |
-        git config --global user.email "github-actions@github.com"
-        git config --global user.name "GitHub Actions"
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-
-    - name: Pull latest changes
-      run: |
-        git pull origin main
-
-    - name: Commit changes
-      run: |
-        mkdir -p output
-        mv -f main.pdf output/main.pdf
-        git add output/main.pdf
-        git commit -m "Add compiled PDF from GitHub Actions"
-
-    - name: Push changes
-      run: |
-        git push

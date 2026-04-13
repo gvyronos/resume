@@ -1,25 +1,51 @@
 name: Build LaTeX document
 on:
   push:
+    branches:
+      - main  # Only run when pushing to main
     paths-ignore:
-      - '*.pdf'  # Don't run on changes to PDF files
+      - '*.pdf'
+
 jobs:
   build_latex:
     runs-on: ubuntu-latest
+    # Added permissions to allow the bot to write to the repo
+    permissions:
+      contents: write
+      
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # Fetch all history for branch switching
 
     - name: Compile LaTeX document
       uses: dante-ev/latex-action@latest
       with:
         root_file: main.tex
 
-    - name: Save Output file
-      uses: actions/upload-artifact@v4
-      with:
-        name: resume
-        path: main.pdf
-        overwrite: true
-        compression-level: 0
-        if-no-files-found: error
+    - name: Commit and Push PDF
+      run: |
+        # Configure Git
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+        # 1. Stash the PDF so it doesn't get lost when switching branches
+        mv main.pdf ../main.pdf_temp
+
+        # 2. Switch to the output branch (create it if it doesn't exist)
+        if git fetch origin output; then
+          git checkout output
+          git pull origin output
+        else
+          git checkout --orphan output
+          git rm -rf .
+        fi
+
+        # 3. Bring the PDF back and commit
+        mv ../main.pdf_temp main.pdf
+        git add -f main.pdf
+        git commit -m "Automated build: main.pdf - $(date)"
+        
+        # 4. Push normally to preserve history
+        git push origin output

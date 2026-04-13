@@ -43,8 +43,8 @@ jobs:
         fi
 
         # 3. Bring the PDF back and commit
-        mv ../main.pdf_temp main.pdf
-        git add -f main.pdf
+        mv ../main.pdf_temp gvyronos.pdf
+        git add -f gvyronos.pdf
         git commit -m "Automated build: main.pdf - $(date)"
         
         # 4. Push normally to preserve history

@@ -19,6 +19,11 @@ jobs:
       with:
         fetch-depth: 0 # Fetch all history for branch switching
 
+    - name: Install PyYAML and generate sections
+      run: |
+        pip install --quiet PyYAML
+        python3 generate.py
+
     - name: Compile LaTeX document
       uses: dante-ev/latex-action@latest
       with:

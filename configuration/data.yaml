@@ -1,0 +1,111 @@
+# Curriculum Vitae data
+# Source of truth for the resume. Run `make build` to regenerate
+# sections/*.tex from this file and compile the PDF.
+
+intro:
+  name: "Giorgos Vyronos"
+  website_url: "https://giorgosvyronos.com"
+  website_label: "giorgosvyronos.com"
+  email: "work@giorgosvyronos.com"
+  location: "Dublin, Ireland"
+  socials:
+    - icon: "faGithub"
+      text: "giorgosvyronos"
+      url: "https://github.com/giorgosvyronos"
+    - icon: "faLinkedin"
+      text: "giorgos-vyronos"
+      url: "https://www.linkedin.com/in/giorgos-vyronos/"
+    - icon: "faTwitter"
+      text: "giorgosvyronos"
+      url: "https://twitter.com/giorgosvyronos"
+
+experience:
+  - role: "System Development Engineer II"
+    subtitle: "Python, TypeScript, AWS, SQL"
+    company: "Amazon.com"
+    company_url: "https://www.amazon.com"
+    location: "Dublin, Ireland"
+    dates: "Jul 2025 - Present"
+    highlights:
+      - "Built a cross-platform data client library (PostgreSQL, Redshift, SQS) that standardized data access for downstream products, eliminating weeks of redundant development effort across multiple teams."
+      - "Designed and implemented an automated test scheduler and data ingestion pipeline, replacing manual processing steps and achieving a major organizational goal for test-at-scale execution."
+      - "Created operational Grafana dashboards providing coverage metrics, failure-mode analysis and environment insights that drove infrastructure planning decisions across the organization."
+      - "Onboarded tens of datasets into the team's data catalog, minimizing engineering effort for data access and accelerating development velocity for the Dublin engineering site."
+
+  - role: "System Development Engineer I"
+    subtitle: "Python, AWS, CDK"
+    company: "Amazon.com"
+    company_url: "https://www.amazon.com"
+    location: "Dublin, Ireland"
+    dates: "Oct 2023 - Jul 2025"
+    highlights:
+      - "Designed and delivered a segment isolation solution for hosted infrastructure, building a custom workflow orchestrator that resolved long-standing host scheduling and recycling problems."
+      - "Led a cloud authentication migration program across organization-owned packages, authoring the remediation guide and serving as point-of-contact to meet compliance obligations."
+      - "Mitigated critical security vulnerabilities by performing host platform migrations and deprecating legacy authentication mechanisms on team-owned packages."
+      - "Built and improved operational tooling and CLI utilities across multiple internal systems, enabling faster delivery and reducing operational toil for the broader team."
+      - "Automated capacity planning for a large-scale retail web platform, replacing manual processes with systematic infrastructure automation."
+
+  - role: "System Development Engineer Intern"
+    subtitle: "Python"
+    company: "Amazon.com"
+    company_url: "https://www.amazon.com"
+    location: "Dublin, Ireland"
+    dates: "Apr 2022 - Sep 2022"
+    highlights:
+      - "Developed an automated auditing tool to assess compatibility of x86 cloud environments for migration to the Arm-based Graviton platform, informing future infrastructure migration decisions."
+      - "Engaged with team engineers on day-to-day support rotations and operational procedures, contributing to ongoing automation projects."
+
+  - role: "Summer Internship Program"
+    subtitle: "Java, XML"
+    company: "SignalGeneriX Ltd"
+    company_url: "https://www.signalgenerix.com/"
+    location: "Limassol, Cyprus"
+    dates: "Jul 2020 - Aug 2020"
+    highlights:
+      - "Researched and prototyped an image recognition system for automated temperature logging under COVID-19 using Android Studio, Java and XML."
+
+projects:
+  - name: "ISSIE Extension"
+    url: "https://github.com/giorgosvyronos/hlp22-project"
+    tech: 'F\#, JavaScript, Electron'
+    dates: "Jan 2022 --- Mar 2022"
+    highlights:
+      - 'Developed in a group of 4, extended features for the university-led digital circuit design and simulation application, \uline{\href{https://tomcl.github.io/issie/}{ISSIE}}.'
+      - "Features included the ability for custom digital components to be drawn, moved, connected and rotated."
+      - 'Additional implementation included the design of a "properties" section, for renaming and remapping of component ports.'
+
+  - name: "Custom FPGA SoC Design"
+    url: ""
+    tech: "SystemVerilog, Intel Quartus Prime"
+    dates: "Jan 2022 --- Mar 2022"
+    highlights:
+      - "Developed in a group of 2, a digital system design using Intel Quartus Prime to accelerate an application (arithmetic expression calculation) through reconfiguring the hardware of an FPGA."
+      - "Designed a NIOS II processor on an FPGA using on-chip RAM and external memory."
+      - "Extended design to provide support for floating point operations through software emulating blocks and through custom IP hardware blocks to be used as dedicated hardware blocks to compute the target expression."
+
+education:
+  - degree: "MEng Electronic and Information Engineering"
+    school: "Imperial College London"
+    school_url: "https://www.imperial.ac.uk/study/ug/courses/electrical-engineering-department/electronic-information-meng/"
+    location: "London, UK"
+    dates: ""
+    highlights:
+      - "Final Year Project: Mentat - A new OS design for highly concurrent applications"
+
+leadership_awards:
+  - role: "Artillery Corporal"
+    organization: "Cyprus National Guard"
+    organization_url: "http://www.army.gov.cy/"
+    location: "Limassol, Cyprus"
+    dates: "Jul 2018 ---  Sep 2019"
+    highlights:
+      - "Managed strategic and confidential information for the 195$^{th}$ Anti-Aircraft Artillery Battalion (195 MEA/AP) personnel office during my military service."
+      - "Completed tactical training as an Assistant Operator of the OTHELLO anti-aircraft gunnery system."
+
+skills:
+  - category: "Programming Languages"
+    items: 'Python $\bullet$ TypeScript $\bullet$ SQL $\bullet$ GoLang $\bullet$ C$\backslash$C++ $\bullet$ F\# $\bullet$ Swift $\bullet$ VHDL $\bullet$ SystemVerilog $\bullet$ Solidity'
+  - category: "Developer Tools"
+    items: 'Git $\bullet$ Neovim $\bullet$ AWS (CDK, S3, Redshift, SQS, Glue, Lambda) $\bullet$ CI/CD $\bullet$ Grafana $\bullet$ Kubernetes $\bullet$ Docker'
+  - category: "Technologies/Frameworks"
+    items: 'Linux $\bullet$ PostgreSQL $\bullet$ React $\bullet$ DBT $\bullet$ GitHub $\bullet$ MongoDB $\bullet$ LaTeX $\bullet$ Electron'
